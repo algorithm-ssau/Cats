@@ -103,7 +103,7 @@ class Cat(models.Model):
     characteristics = models.ManyToManyField(Characteristics, verbose_name="Характеристики")
     about = models.CharField("О породе", max_length=1000)
     lifestyle = models.CharField("Образ жизни", max_length=1000)
-    qualities = models.CharField("Качесва", max_length=500)
+    qualities = models.CharField("Качества", max_length=500)
     img = models.ImageField("Изображение", upload_to="image/")
     url = models.SlugField(max_length=160, unique = True)
 
