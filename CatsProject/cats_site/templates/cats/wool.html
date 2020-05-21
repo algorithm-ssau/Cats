@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,300;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+	<div class="container">
+		<div class="header">
+			<a href="#"><img src="" alt="logo"></a>
+			<ul class="menu">
+				<li class="menu-list"><a href="{% url "contacts"%}" class="menu-link">CONTACTS</a></li>
+				<li class="menu-list"><a href="{% url "corona"%}" class="menu-link">CORONAVIRUS</a></li>
+				<li class="menu-list"><a href="{% url "home"%}" class="menu-link menu-link-active">HOME</a></li>
+			</ul>
+		</div>
+		<hr>
+		<div class="nav">
+			<a href="{% url "home" %}" class="nav-text">Назад на главную</a>
+		</div>
+		<div class="catalog-main-text">{{ wool_type }}</div>
+		{% for cat in cat_list%}
+			<div class="example example1 example2" onclick="location.href='{{ cat.get_absolute_url }}';">
+				<div class="e-photo-bambino" style="background-image: url({{ cat.img_for_list.url }})"></div>
+				<div class="e-ph-text">{{ cat.name }}</div>
+			</div>
+		{% endfor %}
+	</div>
+	<div class="footer">
+		<p>Все права защищены &copy;</p>
+	</div>
+</body>
+</html>

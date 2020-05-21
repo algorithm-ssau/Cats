@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,300;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+	<div class="container">
+		<div class="header">
+			<a href="#"><img src="" alt="logo"></a>
+			<ul class="menu">
+				<li class="menu-list"><a href="{% url "contacts"%}" class="menu-link">CONTACTS</a></li>
+				<li class="menu-list"><a href="{% url "corona"%}" class="menu-link">CORONAVIRUS</a></li>
+				<li class="menu-list"><a href="{% url "home"%}" class="menu-link menu-link-active">HOME</a></li>
+			</ul>
+		</div>
+		<hr>
+
+		<div class="hello-test">
+			<h2 class="h2-test">Подберите породу, которая подходит именно вам</h2>
+			<h3 class="h3-test-11">Пожалуйста, постарайтесь отвечать на вопросы честно, чтобы был получен наилучший результат</h3>
+		</div>
+		<form action="#">
+
+			<div class="class1">
+				<h3 class="h3-test-1">Основную часть времени кошка будет проводить:</h3>
+				<div class="picture1" style="background-image: url(/../../static/images/home.jpg)"></div>
+				<div class="ask1">
+					В помещении <input class="answer" type="radio" name="1" checked>
+					На улице <input class="answer" type="radio" name="1"><br>
+				</div>
+				<div class="picture2" style="background-image: url(/../../static/images/walk.jpg)"></div>
+			</div>
+			<div class="class1">
+				<h3 class="h3-test">Как много времени вы готовы уделять уходу за кошкой:</h3>
+				<div class="picture1-1" style="background-image: url(/../../static/images/many.jpg)"></div>
+				<div class="ask1">
+					Редко(реже одного раза в неделю) <input class="answer2-1" type="radio" name="2" checked><br>
+					Часто(не реже одного - двух раз в неделю) <input class="answer2" type="radio" name="2"><br>
+					Очень часто(каждый день) <input class="answer2" type="radio" name="2">
+				</div>
+				<div class="picture2-1" style="background-image: url(/../../static/images/less.jpg)"></div>
+			</div>
+			<div class="class1">
+				<h3 class="h3-test">Что для вас важно в характере питомца:</h3>
+				<div class="picture8" style="background-image: url(/../../static/images/hand.jpg)"></div>
+				<div class="ask1">
+					Ласковая <input class="answer" type="radio" name="3" checked>
+					Независимая <input class="answer" type="radio" name="3">
+				</div>
+				<div class="picture2" style="background-image: url(/../../static/images/self.jpg)"></div>
+			</div>
+			<div class="class1">
+				<h3 class="h3-test">Что для вас важно в характере питомца:</h3>
+				<div class="picture7" style="background-image: url(/../../static/images/calm2.jpg)"></div>
+				<div class="ask1">
+					Спокойная <input class="answer" type="radio" name="4" checked>
+					Гиперактивная <input class="answer" type="radio" name="4"><br>
+				</div>
+				<div class="picture2" style="background-image: url(/../../static/images/play2.jpg)"></div>
+			</div>
+			<div class="class1">
+				<h3 class="h3-test">Что для вас важно в характере питомца:</h3>
+				<div class="picture3" style="background-image: url(/../../static/images/friends.jpg)"></div>
+				<div class="ask1">
+					Общительная <input class="answer" type="radio" name="5" checked>
+					Замкнутая <input class="answer" type="radio" name="5"><br>
+				</div>
+				<div class="picture4" style="background-image: url(/../../static/images/hide.png)"></div>
+			</div>
+			<div class="class1">
+				<h3 class="h3-test">Что для вас важно в характере питомца:</h3>
+				<div class="picture5" style="background-image: url(/../../static/images/quite.jpg)"></div>
+				<div class="ask1">
+					Молчаливая <input class="answer" type="radio" name="6" checked>
+					Разговорчивая <input class="answer" type="radio" name="6"><br>
+				</div>
+				<div class="picture6" style="background-image: url(/../../static/images/talk.jpg)"></div>
+			</div> 
+		<input class="inn" type="submit" value="Отправить">
+		</form>
+	</div>
+	<div class="footer">
+		<p>Все права защищены &copy;</p>
+	</div>
+</body>
+</html>

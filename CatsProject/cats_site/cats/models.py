@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 class TypeOfWool(models.Model):
 
@@ -11,6 +12,9 @@ class TypeOfWool(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse("middleware", kwargs={"slug":self.url})
 
 class Life_style(models.Model):
 
@@ -105,6 +109,7 @@ class Cat(models.Model):
     lifestyle = models.CharField("Образ жизни", max_length=1000)
     qualities = models.CharField("Качества", max_length=500)
     img = models.ImageField("Изображение", upload_to="image/")
+    img_for_list = models.ImageField("Изображение 2", upload_to="image/", default=img)
     url = models.SlugField(max_length=160, unique = True)
 
     class Meta:
@@ -113,4 +118,6 @@ class Cat(models.Model):
 
     def __str__(self):
         return self.name
-
+    
+    def get_absolute_url(self):
+        return reverse("middleware", kwargs={"slug":self.url})

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,300;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+	<div class="container">
+		<div class="header">
+			<a href="#"><img src="" alt="logo"></a>
+			<ul class="menu">
+				<li class="menu-list"><a href="{% url "contacts"%}" class="menu-link">CONTACTS</a></li>
+				<li class="menu-list"><a href="{% url "corona"%}" class="menu-link">CORONAVIRUS</a></li>
+				<li class="menu-list"><a href="{% url "home"%}" class="menu-link menu-link-active">HOME</a></li>
+			</ul>
+		</div>
+		<hr>
+		<div class="nav">
+			<a href="{{ wool_type.get_absolute_url }}" class="nav-text">Назад к каталогу</a>
+		</div>
+
+		<div class="main">
+			<div class="photo-bambino"  style="background-image: url({{ cat.img.url }})"></div>
+			<div class="main-text">{{ cat.name }}</div>
+		</div>
+
+		<div class="about">
+			<div class="block">
+				<h5 class="nameof">О породе</h5>
+				<p class="block-character">
+					{{ cat.about }}
+				</p>
+			</div>
+			<div class="block">
+				<h5 class="nameof">Характеристика</h5>
+				<ul class="list-character">
+					<li class="block-list">Тип шерсти: {{ wool_type.name }}</li>
+					<li class="block-list">Размер: Высота-{{ cat.height }} Вес-{{ cat.weight }}</li>
+					<li class="block-list">Здоровье: {{ cat.health }}</li>
+					<li class="block-list">Качества: {{ cat.qualities }}</li>
+					<li class="block-list">Продолжительность жизни: {{ cat.life_span }}</li>
+					<li class="block-list">Страна: {{ cat.country_of_origin }}</li>
+				</ul>
+			</div>
+			<div class="block">
+				<h5 class="nameof">Образ жизни</h5>
+				<p class="block-character">
+					{{ cat.lifestyle }}
+				</p>
+			</div>
+		</div>
+	</div>
+	<div class="footer">
+		<p>Все права защищены &copy;</p>
+	</div>
+</body>
+</html>
