@@ -5,6 +5,7 @@ class TypeOfWool(models.Model):
 
     name = models.CharField("Тип шерсти", max_length=20)
     url = models.SlugField(max_length=160, unique = True)
+    text_style = models.CharField("Стиль отбражения текста", max_length=100, default='button2 ')
 
     class Meta:
         verbose_name = "Тип шерсти"
