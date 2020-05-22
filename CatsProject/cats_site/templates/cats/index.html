@@ -32,7 +32,7 @@
 
 		<div class="buttons">
 		{% for wool in wooltype_list%}
-			<a href="{{ wool.get_absolute_url }}"class="button2 b-short">{{ wool.name }}</a>
+			<a href="{{ wool.get_absolute_url }}"class="{{ wool.text_style }}">{{ wool.name }}</a>
 		{% endfor %}
 		</div>
 	</div>

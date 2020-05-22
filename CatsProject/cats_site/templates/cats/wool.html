@@ -21,9 +21,9 @@
 		</div>
 		<div class="catalog-main-text">{{ wool_type }}</div>
 		{% for cat in cat_list%}
-			<div class="example example1 example2" onclick="location.href='{{ cat.get_absolute_url }}';">
-				<div class="e-photo-bambino" style="background-image: url({{ cat.img_for_list.url }})"></div>
-				<div class="e-ph-text">{{ cat.name }}</div>
+			<div class="example {{ cat.style }}" onclick="location.href='{{ cat.get_absolute_url }}';">
+				<div class="{{ cat.image_style }}" style="background-image: url({{ cat.img_for_list.url }})"></div>
+				<div class="{{ cat.text_style }}">{{ cat.name }}</div>
 			</div>
 		{% endfor %}
 	</div>

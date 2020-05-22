@@ -5,6 +5,7 @@ class TypeOfWool(models.Model):
 
     name = models.CharField("Тип шерсти", max_length=20)
     url = models.SlugField(max_length=160, unique = True)
+    text_style = models.CharField("Стиль отбражения текста", max_length=100, default='button2 ')
 
     class Meta:
         verbose_name = "Тип шерсти"
@@ -111,6 +112,9 @@ class Cat(models.Model):
     img = models.ImageField("Изображение", upload_to="image/")
     img_for_list = models.ImageField("Изображение 2", upload_to="image/", default=img)
     url = models.SlugField(max_length=160, unique = True)
+    style = models.CharField("Стиль для списка", max_length=100, default='example1 example2')
+    image_style = models.CharField("Стиль отображения картинки", max_length=100, default='e-photo')
+    text_style = models.CharField("Стиль отбражения текста", max_length=100, default='e-ph-text')
 
     class Meta:
         verbose_name = "Кот"
