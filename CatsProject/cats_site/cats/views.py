@@ -1,7 +1,9 @@
 from django.shortcuts import render
+from django.http import HttpResponseRedirect
 
 from .models import TypeOfWool
 from .models import Cat
+from .models import Characteristics
 
 from django import views
 from django.views import generic
@@ -49,3 +51,17 @@ class CatView ( generic.View ):
         except Exception:
             style = 'photo'
         return render (request, "cats/cat.html", {"cat":cat, "wool_type":wooltype, "style":style})
+
+def finished_test(request):
+    life_style_id = request.POST["life_style_id"]
+    care_id = request.POST["care_id"]
+    attachment_id = request.POST["attachment_id"]
+    activity_id = request.POST["activity_id"]
+    noisiness_id = request.POST["noisiness_id"]
+    sociability_id = request.POST["sociability_id"]
+
+    perfect_cats = Characteristics.objects.filter(life_style_id=life_style_id, care_id=care_id, attachment_id=attachment_id, activity_id=activity_id, noisiness_id=noisiness_id, sociability_id=sociability_id)
+
+    
+
+    return HttpResponseRedirect("")
