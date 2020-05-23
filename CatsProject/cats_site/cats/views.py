@@ -1,7 +1,9 @@
 from django.shortcuts import render
+from django.http import HttpResponseRedirect
 
 from .models import TypeOfWool
 from .models import Cat
+from .models import Characteristics
 
 from django import views
 from django.views import generic
@@ -49,3 +51,20 @@ class CatView ( generic.View ):
         except Exception:
             style = 'photo'
         return render (request, "cats/cat.html", {"cat":cat, "wool_type":wooltype, "style":style})
+
+def finished_test(request):
+    life_style_id = request.POST["life_style_id"]
+    care_id = request.POST["care_id"]
+    attachment_id = request.POST["attachment_id"]
+    activity_id = request.POST["activity_id"]
+    noisiness_id = request.POST["noisiness_id"]
+    sociability_id = request.POST["sociability_id"]
+
+    perfect_cats = Cat.objects.filter(characteristics__life_style_id=life_style_id, characteristics__care_id=care_id, characteristics__attachment_id=attachment_id, characteristics__activity_id=activity_id, characteristics__noisiness_id=noisiness_id, characteristics__sociability_id=sociability_id)
+    
+    if len(perfect_cats) > 0:
+        print(perfect_cats)
+        return render (request, "cats/wool.html", {"cat_list": perfect_cats, "wool_type":"Ваш выбор"})
+    else:
+        print("Mathes not found")
+        return render (request, "cats/wool.html", {"cat_list": perfect_cats, "wool_type":"Совпадений не найдено"})
