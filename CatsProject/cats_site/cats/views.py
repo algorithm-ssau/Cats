@@ -60,8 +60,11 @@ def finished_test(request):
     noisiness_id = request.POST["noisiness_id"]
     sociability_id = request.POST["sociability_id"]
 
-    perfect_cats = Characteristics.objects.filter(life_style_id=life_style_id, care_id=care_id, attachment_id=attachment_id, activity_id=activity_id, noisiness_id=noisiness_id, sociability_id=sociability_id)
-
+    perfect_cats = Cat.objects.filter(characteristics__life_style_id=life_style_id, characteristics__care_id=care_id, characteristics__attachment_id=attachment_id, characteristics__activity_id=activity_id, characteristics__noisiness_id=noisiness_id, characteristics__sociability_id=sociability_id)
     
-
-    return HttpResponseRedirect("")
+    if len(perfect_cats) > 0:
+        print(perfect_cats)
+        return render (request, "cats/wool.html", {"cat_list": perfect_cats, "wool_type":"Ваш выбор"})
+    else:
+        print("Mathes not found")
+        return render (request, "cats/wool.html", {"cat_list": perfect_cats, "wool_type":"Совпадений не найдено"})

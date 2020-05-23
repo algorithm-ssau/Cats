@@ -8,7 +8,7 @@ urlpatterns=[
     path("coronavirus/", views.CoronaVirus.as_view(), name="corona"),
     path("contacts/", views.Contacts.as_view(), name="contacts"),
     path("test/", views.Test.as_view(), name="test"),
-    path("<slug:slug>/", views.middleware_view, name='middleware'),
-    path("test_/", views.finished_test, name="test_")
+    path("_test/", views.finished_test, name="test_"),
+    path("<slug:slug>/", views.middleware_view, name='middleware')
 ]
 
