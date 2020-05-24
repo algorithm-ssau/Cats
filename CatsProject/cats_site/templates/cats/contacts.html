@@ -15,8 +15,9 @@
 				<li class="menu-list"><a href="{% url "corona" %}" class="menu-link">CORONAVIRUS</a></li>
 				<li class="menu-list"><a href="{% url "home"%}" class="menu-link menu-link-active">HOME</a></li>
 			</ul>
-			<form class="form">
-				<input type="text" class="input" placeholder="Искать здесь...">
+			<form class="form" action="{% url "s_result" %}" method="post">
+				{% csrf_token %}
+				<input type="text" class="input" placeholder="Искать здесь..." name="search_field">
 				<button type="submit"></button>
 			</form>
 		</div>

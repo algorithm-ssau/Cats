@@ -69,7 +69,8 @@ def finished_test(request):
 
 def serch_result(request):
     s_field = request.POST["search_field"]
-    cats = Cat.objects.icontains(name=s_field)
+    cats = Cat.objects.filter(name__icontains=s_field)
+    print(cats)
     if len(cats) > 0:
         return render (request, "cats/wool.html", {"cat_list": cats, "wool_type":"Результат поиска"})
     else:
