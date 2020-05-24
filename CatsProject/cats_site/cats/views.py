@@ -63,8 +63,14 @@ def finished_test(request):
     perfect_cats = Cat.objects.filter(characteristics__life_style_id=life_style_id, characteristics__care_id=care_id, characteristics__attachment_id=attachment_id, characteristics__activity_id=activity_id, characteristics__noisiness_id=noisiness_id, characteristics__sociability_id=sociability_id)
     
     if len(perfect_cats) > 0:
-        print(perfect_cats)
         return render (request, "cats/wool.html", {"cat_list": perfect_cats, "wool_type":"Ваш выбор"})
     else:
-        print("Mathes not found")
         return render (request, "cats/wool.html", {"cat_list": perfect_cats, "wool_type":"Совпадений не найдено"})
+
+def serch_result(request):
+    s_field = request.POST["search_field"]
+    cats = Cat.objects.icontains(name=s_field)
+    if len(cats) > 0:
+        return render (request, "cats/wool.html", {"cat_list": cats, "wool_type":"Результат поиска"})
+    else:
+        return render (request, "cats/wool.html", {"cat_list": cats, "wool_type":"Совпадений не найдено"})
