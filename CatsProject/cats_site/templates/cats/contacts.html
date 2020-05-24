@@ -4,6 +4,7 @@
 <head>
 	<link rel="stylesheet" href="{% static 'css/style.css' %}">
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,300;0,700;1,400&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 </head>
 <body>
 	<div class="container">
@@ -14,6 +15,11 @@
 				<li class="menu-list"><a href="{% url "corona" %}" class="menu-link">CORONAVIRUS</a></li>
 				<li class="menu-list"><a href="{% url "home"%}" class="menu-link menu-link-active">HOME</a></li>
 			</ul>
+			<form class="form" action="{% url "s_result" %}" method="post">
+				{% csrf_token %}
+				<input type="text" class="input" placeholder="Искать здесь..." name="search_field">
+				<button type="submit"></button>
+			</form>
 		</div>
 		<hr>
 		<div class="adress">
